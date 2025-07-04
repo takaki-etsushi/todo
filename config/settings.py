@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import env
+import environ
 from decouple import config
 from dj_database_url import parse as dburl
 
@@ -123,11 +123,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = str(BASE_DIR / "static")
+STATIC_ROOT = BASE_DIR / "staticfiles"  # フォルダ名を変更。str()はPathオブジェクトを使う場合は不要
  # whitenoiseを使用する為、追加
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    # もし、プロジェクトのルートに、アプリケーションとは別に共通の静的ファイルを置く場所が必要な場合
+    # 例: BASE_DIR / "project_static" のようなディレクトリにCSSやJSを置く場合
+    # os.path.join(BASE_DIR, 'project_static'),
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
