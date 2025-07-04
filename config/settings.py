@@ -127,6 +127,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"  # フォルダ名を変更。str()はPat
  # whitenoiseを使用する為、追加
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_DIRS = [
+    BASE_DIR / "static",
     # もし、プロジェクトのルートに、アプリケーションとは別に共通の静的ファイルを置く場所が必要な場合
     # 例: BASE_DIR / "project_static" のようなディレクトリにCSSやJSを置く場合
     # os.path.join(BASE_DIR, 'project_static'),

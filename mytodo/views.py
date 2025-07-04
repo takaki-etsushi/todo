@@ -53,6 +53,8 @@ class Update_task_complete(View):
 
         return redirect('/')
     
+
+    
 # ビュークラスをインスタンス化
 index = IndexView.as_view()
 add = AddView.as_view()
